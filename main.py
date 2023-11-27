@@ -5,6 +5,8 @@ import cv2
 import numpy as np
 import threading
 import time
+import pygame
+
 
 class Camera:
     def __init__(self, url):
@@ -125,19 +127,35 @@ def event():
     camera.stop_camera()
     if boolean_value == True:
         result_label.config(text=f'반납완료')
+        play_success()
     if boolean_value == "Try Again bro":
         result_label.config(text=f'20초가 지났어요 다시 반납하세요')
     
 
     cv2.destroyAllWindows()
-        
+
+def play_success(file_path='success.mp3'):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
+    time.sleep(5)
+    pygame.mixer.music.stop
+    pygame.quit
+
+
+
+def play_failed(file_path='failed.mp3'):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
+    time.sleep(5)
+    pygame.mixer.music.stop
+    pygame.quit
 
 
 # 예제로 빨간색 감지
 if __name__ == "__main__":
     # 스마트폰의 IP 주소 및 포트 번호 입력
     
-
+    pygame.init()
     tk = Tk()
 
     button = Button(tk,text = '반납시작', command = event)  
