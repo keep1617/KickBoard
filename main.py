@@ -80,8 +80,8 @@ class Sensing:
         color_upper = np.array([100, 100, 255])
         
         start_time = time.time()
-
-        while True:
+        print(start_time)
+        while True:  #20초 안에 반납 못하면 끝
             result = self.color_sensing(color_lower, color_upper)
             self.check_movement()  # 정지 여부 확인 추가
             
@@ -107,6 +107,7 @@ class Sensing:
 
             if elapsed_time >= 20:
                 return "Try Again bro"
+            
 
             
 
@@ -119,7 +120,8 @@ def event():
 
     camera = Camera(smartphone_url)
     camera.start_camera()
-    boolean_value = camera.sensing.on_cam()
+    boolean_value = True
+    camera.sensing.on_cam()
     camera.stop_camera()
     if boolean_value == True:
         result_label.config(text=f'반납완료')
