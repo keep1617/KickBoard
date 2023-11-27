@@ -52,19 +52,26 @@ class Sensing:
             time.sleep(0.01) 
 
 class ZeroSpeedDetection:
-    def __init__(self, camera):
+    def __init__(self, camera, mse_threshold=100):
         self.camera, self.previous_frame = camera, None
+        self.mse_threshold = mse_threshold
+
+    def calculate_mse(self, frame1, frame2):
+        return np.sum((frame1.astype("float") - frame2.astype("float")) ** 2) / float(frame1.shape[0] * frame1.shape[1])
 
     def detect_zero_speed(self):
         current_frame = self.camera.frame
 
-        if self.previous_frame is not None and np.array_equal(current_frame, self.previous_frame):
-            print("ZeroSpeed")
+        if self.previous_frame is not None:
+            mse = self.calculate_mse(current_frame, self.previous_frame)
+            if mse < self.mse_threshold:
+                print("ZeroSpeed")
 
         self.previous_frame = current_frame
 
+
 if __name__ == "__main__":
-    smartphone_url = 'http://172.21.128.43:8080/video'
+    smartphone_url = 'http://192.168.0.2:8080/video'
     camera = Camera(smartphone_url)
     camera.start_camera()
     camera.sensing.color_sensing(np.array([100, 0, 0]), np.array([255, 100, 100]))
