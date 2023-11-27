@@ -52,7 +52,7 @@ class Sensing:
             time.sleep(0.01) 
 
 class ZeroSpeedDetection:
-    def __init__(self, camera, mse_threshold=100):
+    def __init__(self, camera, mse_threshold=100):# 프레임의 차이 감지의 민감도라고 볼 수 있음
         self.camera, self.previous_frame = camera, None
         self.mse_threshold = mse_threshold
 
@@ -74,7 +74,8 @@ if __name__ == "__main__":
     smartphone_url = 'http://192.168.0.2:8080/video'
     camera = Camera(smartphone_url)
     camera.start_camera()
-    camera.sensing.color_sensing(np.array([100, 0, 0]), np.array([255, 100, 100]))
+    camera.sensing.color_sensing(np.array([100, 0, 0]), np.array([255, 100, 100])) # 감지할 색을 바꾸고 싶다면 안쪽의 숫자를 바꿔주면됨.
     camera.stop_camera()
 
     cv2.destroyAllWindows()
+
