@@ -13,11 +13,10 @@ class UI():
         self.button = None
         self.button1 = None
         self.button2 = None
-        
+        self.activate = None
 
-    def show_result(self):
-            self.bool = random.choice([True, False])
-            print(self.bool)
+    def show_result(self):##인자는 is_return 함수로 받는다
+                        #self.bool = bool
             if self.button1 and self.button2:
                 self.button1.pack_forget()
                 self.button2.pack_forget()
@@ -47,6 +46,10 @@ class UI():
         self.result_label = Label(self.tk, text="Boolean 값: None")
         self.button.pack(padx=10, pady=10)
 
+
+    def activate(self):
+        self.activate = True ## Arduino Activate  변수
+
     def play_success(file_path='success.mp3'):
         # Pygame 초기화
         pygame.init()
@@ -71,9 +74,11 @@ class UI():
         pygame.time.delay(200)
         pygame.quit
 
-bool = False
-ui = UI(bool)
+
+ui = UI(bool) #bool 값 Judge 에서 받아오기
 ui.create_buttons()
 ui.result_label.pack()
 
 ui.tk.mainloop()
+
+#
