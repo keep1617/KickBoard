@@ -26,23 +26,76 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
 
 <a name="install"></a>
 ## Setup
+0. SET Virtualbox USB 
+  
 
 1. Module과 python 버전
-  python = 3.10.9
-  pygame = 2.5.2
-  tkinter = 8.6
-  numpy =1.23.5
-  serial=3.5
+  * python = 3.10.9
+  * pygame = 2.5.2
+  * tkinter = 8.6
+  * numpy =1.23.5
+  * serial=3.5
 
-Ubuntu 20.04 기준 설치 방법
+## Ubuntu 20.04 기준 설치 방법
+## !!Conda 가상환경 설치되어있다고 가정합니다!!
 
-
-Conda 가상환경 설치되어있다고 가정합니다
-
-2. Install pip
-  '''
+2. Create Virtual Environment 
+ ```
   conda create -name <name> python=3.10.9
-  '''
+  ```
+
+```
+conda activate <name>
+```
+
+3. Install Module
+  * install pygame, pyserial numpy tk.
+  ```
+  conda install pygame=2.5.2
+```
+```
+conda install pyserial=3.5
+```
+```
+conda install numpy=1.23.5
+```
+
+```
+conda install tk=8.6
+```
+if there is any error, then just install tk. Just like this
+```
+conda install tk
+```
+if pygame is not installed, then please write this code
+
+```
+conda install -c conda-forge <package name>
+```
+
+4. Get git clone
+   ```
+   mkdir mk
+   cd mk
+   git clone https://github.com/keep1617/KickBoard.git
+   username: keep1617 <or your username>
+   password: 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
+   ```
+
+5. Connect Arduino Module to Ubuntu through USB port
+   ## 파일을 실행하기 전에, usb port에 대한 권한을 할당해야 합니다
+   ```
+   sudo usermod -a -G dialout <username>
+   <your password>
+   sudo chmod a+rw /dev/ttyACM0
+  ```
+
+6. 
+
+   
+
+
+
 
 
    
