@@ -17,7 +17,7 @@ KickBoard return judging Module
 
 
 
-
+## Easy to find
 * [Models](#models)
 * [Setup](#install)
 * [Set Usb port](#setting)
