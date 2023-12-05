@@ -27,7 +27,8 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
 <a name="install"></a>
 ## Setup
 0. SET Virtualbox USB 
-  
+  * In Virtual Box,  Ubuntu 설정 -> USB --> Usb 필터 추가 --> Arduino 클릭
+  * Ubuntu 실행 
 
 1. Module과 python 버전
   * python = 3.10.9
@@ -82,17 +83,22 @@ conda install -c conda-forge <package name>
    password: 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
    ```
 
-5. Connect Arduino Module to Ubuntu through USB port
-   ## 파일을 실행하기 전에, usb port에 대한 권한을 할당해야 합니다
+
+<a name="setting"></a>
+## Set USB Port
+ * Connect Arduino Module to Ubuntu through USB port
+ * 파일을 실행하기 전에, usb port에 대한 권한을 할당해야 합니다
    ```
    sudo usermod -a -G dialout <username>
    <your password>
    sudo chmod a+rw /dev/ttyACM0
-  ```
+   ```
 
-6. 
+## Then, execute main.py
+   ``` cd KickBoard
+      python main.py
+```
 
-   
 
 
 
