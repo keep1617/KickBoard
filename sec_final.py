@@ -1,9 +1,8 @@
 from tkinter import *
-import random
 import pygame
-import time
 import serial
-import time
+import math
+import numpy as np
 
 
 class UI():
@@ -16,25 +15,41 @@ class UI():
         self.button2 = None
         self.activate = None
 
-    def show_result(self):##인자는 Judge class 의 is_return 함수로 받는다
+    def show_result(self):
         x = Arduino()
-        x.get_sen()
-        x.a
-        x.b
+        self.rgb = []
+
+        for i in range(0,5):
+
+            x.get_sen()
+            
+            self.rgb.append(x.sen_rgb)
+        matrix = np.self.rgb
+       
+        column_median = np.median(matrix,axis=0)
+
+        column_median_list = column_median.tolist()
+
+        print("각 열의 중간값 (NumPy 배열):", column_median)
+        print("각 열의 중간값 (Python 리스트):", column_median_list)
+
+            
         
+        x.sen_gps
         judge = Judge()
 
-        rgb_data = x.b
-        gps_data = x.a
-        print(x.b)
-        print(x.a)
+        rgb_data = column_median_list
+        gps_data = x.sen_gps
+        print(x.sen_rgb)
+        print(x.sen_gps)
         sensing_result = judge.sensing(rgb_data)
-
         location_result = judge.location(gps_data)
+
         self.bool = sensing_result and location_result
         print(self.bool)
+        # print(sensing_result)
         
-        
+
 
 
         if self.button1 and self.button2:
@@ -67,13 +82,13 @@ class UI():
 
 
     def activate(self):
-        self.activate = True ## Arduino Activate  변수
+        self.activate = True 
 
     def play_success(file_path='success.mp3'):
-        # Pygame 초기화
+        
         pygame.init()
 
-        # 믹서 초기화
+     
         pygame.mixer.init()
         success_sound = pygame.mixer.Sound('success.mp3')
         success_sound.play()
@@ -83,10 +98,10 @@ class UI():
 
     
     def play_failed(file_path='failed.mp3'):
-        # Pygame 초기화
+        
         pygame.init()
 
-        # 믹서 초기화
+       
         pygame.mixer.init()
         failed_sound = pygame.mixer.Sound('failed.mp3')
         failed_sound.play()
@@ -96,7 +111,7 @@ class UI():
 
 
 class Arduino:
-    def __init__(self, port='COM12', baud_rate=115200, timeout=None):
+    def __init__(self, port='/dev/ttyACM0', baud_rate=115200, timeout=None):
         
         self.ser = serial.Serial(port, baud_rate, timeout=timeout)
         
@@ -113,12 +128,12 @@ class Arduino:
 
     def GPS_read(self, list):
         
-        self.a = list[0:2]
+        self.sen_gps = list[0:2]
 
 
     def color_sensor(self,list):
         
-        self.b = list[2:5]
+        self.sen_rgb = list[2:5]
 
 
 
@@ -131,8 +146,14 @@ class Judge:
 
     def sensing(self, sensor_values):
         self.RGB_sensor = sensor_values
-        self.lower = [100, 0, 0] #BGR
-        self.upper = [140, 255, 255]
+
+        result_list = [x / sum(sensor_values) for x in sensor_values]
+        per_list = [x * 100 for x in result_list]        
+
+        print(per_list)
+        
+        self.lower = [21, 25, 21] #BGR
+        self.upper = [29, 33, 29]
         if self.RGB_sensor >= self.lower and \
            self.RGB_sensor <= self.upper :
             return True
@@ -140,27 +161,40 @@ class Judge:
             return False
     
     def location(self, gps_values) :
+        #GPS 값이 특공관 위치에 해당하면 True를 출력
+        #특공관 중앙의 위도, 경도 값을 중심으로 일정 범위 내에 있는지 확인
+
         self.GPS_val = gps_values
 
-        school_lat = 35.233197
-        school_lon = 129.083096
+        #특공관 중앙의 위도, 경도
+        middle_lat = 35.233280
+        middle_lon = 129.082891
 
+        #특공관 가장 끝의 위도, 경도
+        edge_lat = 35.233061
+        edge_lon = 129.083228
+
+        #현재 위치의 위도, 경도
         lat, lon = gps_values
-        
-        if abs(school_lat - lat) <= 0.000136 and \
-           abs(school_lon - lon) <= 0.000132 :
-                return True
+
+        #특공관 중앙에서 가장 끝을 기준으로 특공관 범위 내를 원 범위로 계산
+        range = math.sqrt(abs(middle_lat-edge_lat)**2 + abs(middle_lon-edge_lon))
+
+        #특공관 중앙에서 현재 위치까지의 거리 계산
+        length = math.sqrt(abs(middle_lat - lat)**2 + abs(middle_lon - lon)**2)
+
+        #현재 위치가 특공관 범위 내에 있다면 True를 출력
+        if length <= range : 
+            return True
         else :
             return False
-
+        
+        
 
 
 bool =True
-ui = UI(bool) #bool 값 Judge 에서 받아오기
+ui = UI(bool) 
 ui.create_buttons()
 ui.result_label.pack()
 
 ui.tk.mainloop()
-
-
-

@@ -15,7 +15,7 @@ class UI():
         self.button2 = None
         self.activate = None
 
-    def show_result(self):##인자는 is_return 함수로 받는다
+    def show_result(self):##인자는 Judge class 의 is_return 함수로 받는다
                         #self.bool = bool
             if self.button1 and self.button2:
                 self.button1.pack_forget()
@@ -74,7 +74,7 @@ class UI():
         pygame.time.delay(200)
         pygame.quit
 
-
+bool =True
 ui = UI(bool) #bool 값 Judge 에서 받아오기
 ui.create_buttons()
 ui.result_label.pack()
