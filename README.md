@@ -15,6 +15,7 @@ KickBoard return judging System
 * [Models](#models)
 * [Setup](#install)
 * [Set Usb port](#setting)
+* [Explanation](#explain)
 * [Reference](#reference)
 
 <a name="models"></a>
@@ -27,7 +28,7 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
 <a name="install"></a>
 ## Setup
 0. SET Virtualbox USB
-  * Arduino 보드를 컴퓨터와 연결합니다 
+  * Arduino 보드를 컴퓨터와 연결합니다 (using USB port)
   * Virtualbox 에 들어갑니다
   * Ubuntu 설정 -> USB --> Usb 필터 추가 --> Arduino 클릭
   * Ubuntu 실행 
@@ -36,8 +37,8 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
   * python = 3.10.9
   * pygame = 2.5.2
   * tkinter = 8.6
-  * numpy =1.23.5
-  * serial=3.5
+  * numpy = 1.23.5
+  * serial= 3.5
 
 ## Ubuntu 20.04 기준 설치 방법
 ## !!Conda 가상환경 설치되어있다고 가정합니다!!
@@ -100,6 +101,21 @@ conda install -c conda-forge <package name>
    ``` cd KickBoard
       python main.py
 ```
+
+<a name="explain"></a>
+## 코드 설명
+1. 반납
+* python에서 코드를 실행합니다
+* 반납 버튼을 누르면 show_result 함수가 실행됩니다  
+* Arduino 객체가 생성됩니다
+* 5개의 센서 data list 값을 받습니다
+* data list에서 중간값을 가져옵니다
+* Judge 객체가 call 됩니다
+* judging을 수행하고 UI self.bool에 결과를 저장합니다
+* self.bool 이 true라면 반납 완료를 보여주고 반납되었음을 말해주는 play_success 함수가 실행됩니다
+
+2. 반납 실패
+    반납이 실패되면 다시 반납 버튼을 누르고 위 반납 과정을 반복합니다 
 
 
 
