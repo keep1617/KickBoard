@@ -26,8 +26,10 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
 
 <a name="install"></a>
 ## Setup
-0. SET Virtualbox USB 
-  * In Virtual Box,  Ubuntu 설정 -> USB --> Usb 필터 추가 --> Arduino 클릭
+0. SET Virtualbox USB
+  * Arduino 보드를 컴퓨터와 연결합니다 
+  * Virtualbox 에 들어갑니다
+  * Ubuntu 설정 -> USB --> Usb 필터 추가 --> Arduino 클릭
   * Ubuntu 실행 
 
 1. Module과 python 버전
@@ -101,7 +103,11 @@ conda install -c conda-forge <package name>
 
 
 
+<a name="reference"></a>
 
+* tkinter 모듈 사용법으로 기본적 코드 구현
+  [how to use](https://proprogramming.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EA%B8%B0%EB%B3%B8%ED%8C%A8%ED%82%A4%EC%A7%80-Tkinter%EC%82%AC%EC%9A%A9%EB%B2%95)
+  
 
 
    
