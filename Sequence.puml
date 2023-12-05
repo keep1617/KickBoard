@@ -1,44 +1,39 @@
 @startuml
 
 
-actor "Monitor"
 participant "UI"
-participant "Camera"
-participant "Sensing"
-participant "GPS"
+participant "Arduino"
+participant "Judge"
 
-"Monitor" -> "UI" : 반납 버튼 누르기
 
 activate "UI"
 
-
-"UI" -> "GPS" : GPS 활성화
-activate "GPS"
-"GPS" -> "GPS" : 위치 감지 및 주소 출력
+"UI" -> "UI" : Push the button
 
 
 
-"UI" -> "Camera" : 카메라 활성화
+"UI" -> "Arduino" : Arduino ON
 deactivate "UI"
-activate "Camera"
+
+activate "Arduino"
+"Arduino" -> "Arduino" : Sensor ON
 
 
-"Camera" -> "Sensing" : 카메라 화면 정보 전달
-deactivate "Camera"
-activate "Sensing"
-"Sensing" -> "Sensing" : 색상 감지
 
-"Sensing" -> "UI" : 감지 여부 전달
-deactivate "Sensing"
+"Arduino" -> "Arduino" : GPS ON
+
+
+"Arduino" -> "Judge" : color, GPS
+deactivate "Arduino"
+activate "Judge"
+
+"Judge" -> "Judge" : Judge
+"Judge" -> "UI" : True or False
+
+deactivate "Judge"
 activate "UI"
 
-
-"GPS" -> "UI" : 위치정보 전달
-deactivate "GPS"
-
-
-"UI" -> "Monitor" : 반납 완료 여부 표시
-deactivate "UI"
+"UI" -> "UI" : Play Sound
 
 
 
