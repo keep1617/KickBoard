@@ -1,4 +1,4 @@
-KickBoard return judging System
+KickBoard return judging Module
 ===
 
 <p align="center">
@@ -8,6 +8,12 @@ KickBoard return judging System
 저희가 구현한 것은 반납 시스템 전부가 아니라 
 지정된 구역 안에 주차되었는지 판별하는 시스템입니다.
 지정구역은 파란색으로 색칠되어 있다고 가정합니다.
+
+## 시스템 설명
+* 원래 kakao T 에서 제공하는 어플을 사용하면 킥보드를 반납 구역에 주차하고 앱에서 반납 버튼을 누릅니다
+* 반납 구역에 주차하지 않는다면 계속 사용 요금이 올라가므로 Client는 반드시 반납을 지정 주차 구역에 해야 합니다
+* 이 Module은 어플에서 제공하는 지정 주차구역(GPS라서 세부적인 주차구역은 판별 불가능) 뿐만 아니라 우리 학교에 있는 킥보드 지정주차 구역도 감지할 수 있습니다
+* 색감지 Arduino 모듈을 사용하여 judging을 수행합니다
 
 
 
