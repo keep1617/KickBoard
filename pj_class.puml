@@ -1,0 +1,43 @@
+@startuml
+
+class UI {
+  - tk: Tk
+  - button: Button
+  - button1: Button
+  - button2: Button
+  - activate: bool
+
+  + show_result()
+  + create_buttons()
+  + activate()
+  + play_success(file_path='success.mp3')
+  + play_failed(file_path='failed.mp3')
+}
+
+class Arduino {
+  - ser: Serial
+  - data: str
+  - data_list: List[float]
+  - sen_gps: List[float]
+  - sen_rgb: List[float]
+  
+  + get_sen()
+  + GPS_read(list)
+  + color_sensor(list)
+}
+
+class Judge {
+  - RGB_sensor: List[float]
+  - GPS_val: List[float]
+  - is_return: bool
+  
+  + sensing(sensor_values)
+  + location(gps_values)
+}
+
+UI ---> Arduino : button ON
+Arduino ---> Judge :  SEND GPS, RGB
+Judge -> UI : SEND True/False
+
+
+@enduml
