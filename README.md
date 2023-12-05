@@ -40,7 +40,13 @@ Ubuntu 20.04 기준 설치 방법
 Conda 가상환경 설치되어있다고 가정합니다
 
 2. Install pip
-           conda create -name <name> python = 3.10.9
+  '''
+  conda create -name <name> python=3.10.9
+  '''
+
+
+   
+
    
      
 
