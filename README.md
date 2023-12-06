@@ -25,8 +25,7 @@ KickBoard return judging Module
 * [How to Use](#method)
 * [Features](#features)
 * [Reference](#reference)
-* 
-
+  
 
 <a name="models"></a>
 ## Models
@@ -148,9 +147,9 @@ conda install -c conda-forge <package name>
 <a name="models"></a>
 ## Features
 1. Arduino, Judge, UI 클래스를 통해 다중 클래스 구조 및 객체 지향 프로그래밍을 활용함
-   *Arduino 는 저희 팀이 작성한 아두이노 코드를 python에서 사용할 수 있도록 한 class입니다
-   *UI 클래스는 Tkinter 모듈을 사용하여 반납 버튼과 최종 결과를 알려줍니다
-   *Judge 클래스는 Arduino에서 얻은 데이터로 최종 반납 판별을 합니다
+   * Arduino 는 저희 팀이 작성한 아두이노 코드를 python에서 사용할 수 있도록 한 class입니다
+   * UI 클래스는 Tkinter 모듈을 사용하여 반납 버튼과 최종 결과를 알려줍니다
+   * Judge 클래스는 Arduino에서 얻은 데이터로 최종 반납 판별을 합니다
 2. 실제 하드웨어와의 통합
    * RGB센서를 활용하였음. 센서에서 받아오는 데이터를 처리하는 코드 구현. 5개의 데이터를 받아 중간값을 계산하여 return함
    * GPS 센서 활용함. GPS에서 위도와 경도 데이터를 얻어옴. Judge 클래스에서 웅비관 주차장 위도 경도값과 gps데이터의 거리를 비교하여 현재 위치가 웅비관 주차장에 있는지 판별함
