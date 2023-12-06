@@ -130,9 +130,11 @@ conda install -c conda-forge <package name>
 4. 주차 구역에 module을 가지고 간다
 5. main.py를 실행한다
 
-   ``` cd KickBoard
+   ```
+     cd KickBoard
       python main.py
-```
+   ```
+
 7. 반납 버튼을 누른다
 8. 확인한다
 9. 실패한다면 다시 반납하기 누른다.
@@ -143,7 +145,11 @@ conda install -c conda-forge <package name>
 * tkinter 모듈 사용법으로 기본적 코드 구현
   [how to use](https://proprogramming.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EA%B8%B0%EB%B3%B8%ED%8C%A8%ED%82%A4%EC%A7%80-Tkinter%EC%82%AC%EC%9A%A9%EB%B2%95)
   
-
+* 아두이노 색감지 센서 코드 reference
+  [example]( https://makepcb.co.kr/mall/m_mall_detail.php?ps_mode=search&url=index.php&ps_search=m040&x=0&y=0&ps_goid=131&)
+* Find USB Port in Ubuntu
+  [how to find](https://www.chippiko.com/install-arduino-ubuntu#How_to_Configure_Permission_Denied_Port)
+  
 
    
 
