@@ -113,27 +113,28 @@ class UI():
 class Arduino:
     def __init__(self, port='/dev/ttyACM0', baud_rate=115200, timeout=None):
         
-        self.ser = serial.Serial(port, baud_rate, timeout=timeout)
+        self.ser = serial.Serial(port, baud_rate, timeout=timeout) # 포트번호와 전송률 설정
         
 
     def get_sen(self):
-        self.data = self.ser.readline().decode('utf-8').strip()
+        self.data = self.ser.readline().decode('utf-8').strip()  # 아두이노 보드가 시리얼모니터에 출력하는 문자열을 저장
+                                                                 # 문자열은 '위도', '경도', 'R', 'G', 'B' 순서로 구성
 
-        self.data_list = [float(value) for value in self.data.split(',') if value]
+        self.data_list = [float(value) for value in self.data.split(',') if value]  # 문자열을 ','기준으로 분할하여 list[float]로 변환
 
-        self.GPS_read(self.data_list)
-        self.color_sensor(self.data_list)
+        self.GPS_read(self.data_list)  # 위도, 경도 추출
+        self.color_sensor(self.data_list) # R, G, B 값 추출
         
 
 
     def GPS_read(self, list):
         
-        self.sen_gps = list[0:2]
+        self.sen_gps = list[0:2]  # 위도, 경도 추출
 
 
     def color_sensor(self,list):
         
-        self.sen_rgb = list[2:5]
+        self.sen_rgb = list[2:5]  # R, G, B 값 추출
 #end here
 
 
