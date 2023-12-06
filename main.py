@@ -169,8 +169,8 @@ class Judge:
         middle_lon = 129.077633
 
         #웅비관 킥보드 주차장 가장 끝의 위도, 경도
-        edge_lat = 35.236867
-        edge_lon = 129.077564
+        edge_lat = 35.236781
+        edge_lon = 129.077513
 
         #현재 위치의 위도, 경도
         lat, lon = gps_values
