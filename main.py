@@ -137,7 +137,7 @@ class Arduino:
 #end here
 
 
-
+#start here
 class Judge:
     def __init__(self) :
         self.RGB_sensor = []
@@ -187,8 +187,6 @@ class Judge:
         else :
             return False
         
-        
-#start here
 
 bool =True
 ui = UI(bool) 
