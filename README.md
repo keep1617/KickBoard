@@ -23,6 +23,7 @@ KickBoard return judging Module
 * [Set Usb port](#setting)
 * [Explanation](#explain)
 * [How to Use](#method)
+* [Features](#features)
 * [Reference](#reference)
 * 
 
@@ -143,6 +144,22 @@ conda install -c conda-forge <package name>
 8. 확인한다
 9. 실패한다면 다시 반납하기 누른다.
 
+
+<a name="models"></a>
+## Features
+1. Arduino, Judge, UI 클래스를 통해 다중 클래스 구조 및 객체 지향 프로그래밍을 활용함
+   *Arduino 는 저희 팀이 작성한 아두이노 코드를 python에서 사용할 수 있도록 한 class입니다
+   *UI 클래스는 Tkinter 모듈을 사용하여 반납 버튼과 최종 결과를 알려줍니다
+   *Judge 클래스는 Arduino에서 얻은 데이터로 최종 반납 판별을 합니다
+2. 실제 하드웨어와의 통합
+   * RGB센서를 활용하였음. 센서에서 받아오는 데이터를 처리하는 코드 구현. 5개의 데이터를 받아 중간값을 계산하여 return함
+   * GPS 센서 활용함. GPS에서 위도와 경도 데이터를 얻어옴. Judge 클래스에서 웅비관 주차장 위도 경도값과 gps데이터의 거리를 비교하여 현재 위치가 웅비관 주차장에 있는지 판별함
+3 . 다양한 라이브러리 활용
+ * Numpy 라이브러리를 사용하여 5개의 데이터를 받아 중간값 계산하는 코드를 간단화하였음
+ * Pyserial로 arduino 모듈과 python 코드를 연결하여 센서값을 읽어올 수 있었음
+ * pygame 라이브러리로 성공 및 실패 사운드 실행함
+ * Tkinter 사용하여 반납 버튼과 다시반납 버튼, 종료 버튼 구현함
+4. 간단한 예시 코드를 참조하여 대부분의 코드를 자체 설계 하였음
 
 <a name="reference"></a>
 ## Reference
