@@ -105,10 +105,6 @@ conda install -c conda-forge <package name>
    sudo chmod a+rw /dev/ttyACM0
    ```
 
-## Then, execute main.py
-   ``` cd KickBoard
-      python main.py
-```
 
 <a name="explain"></a>
 ## Explanation
@@ -133,9 +129,13 @@ conda install -c conda-forge <package name>
 3. GPS가 위성과  connect 할 때까지 야외에서 기다린다(gps불이 깜빡거리면 위성과 연결이 되었단 것이다)
 4. 주차 구역에 module을 가지고 간다
 5. main.py를 실행한다
-6. 반납 버튼을 누른다
-7. 확인한다
-8. 실패한다면 다시 반납하기 누른다.
+
+   ``` cd KickBoard
+      python main.py
+```
+7. 반납 버튼을 누른다
+8. 확인한다
+9. 실패한다면 다시 반납하기 누른다.
 
 
 <a name="reference"></a>
