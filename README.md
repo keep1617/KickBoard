@@ -35,7 +35,8 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
 
 
 <a name="install"></a>
-## Setup
+## Setup Ubuntu 20.04 기준 설치 방법 --!!Conda 가상환경 설치되어있다고 가정합니다!!
+
 0. SET Virtualbox USB
   * Arduino 보드를 컴퓨터와 연결합니다 (using USB port)
   * Virtualbox 에 들어갑니다
@@ -49,8 +50,6 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
   * numpy = 1.23.5
   * serial= 3.5
 
-## Ubuntu 20.04 기준 설치 방법
-## !!Conda 가상환경 설치되어있다고 가정합니다!!
 
 2. Create Virtual Environment 
  ```
@@ -112,7 +111,7 @@ conda install -c conda-forge <package name>
 ```
 
 <a name="explain"></a>
-## 코드 설명
+## Explanation
 1. 반납
 * python에서 코드를 실행합니다
 * 반납 버튼을 누르면 show_result 함수가 실행됩니다  
@@ -128,7 +127,7 @@ conda install -c conda-forge <package name>
 
 
 <a name="method"></a>
-## 실행 방법
+## How to Use
 1. 기기를 노트북에 연결한다
 2. Setup 부분을 참고하여 install 한다
 3. GPS가 위성과  connect 할 때까지 야외에서 기다린다(gps불이 깜빡거리면 위성과 연결이 되었단 것이다)
