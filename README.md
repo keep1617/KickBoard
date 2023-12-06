@@ -120,7 +120,10 @@ conda install -c conda-forge <package name>
 * self.bool 이 true라면 반납 완료를 보여주고 반납되었음을 말해주는 play_success 함수가 실행됩니다
 
 2. 반납 실패
-    반납이 실패되면 다시 반납 버튼을 누르고 위 반납 과정을 반복합니다 
+    반납이 실패되면 다시 반납 버튼을 누르고 위 반납 과정을 반복합니다
+
+![image](https://github.com/keep1617/KickBoard/assets/150093895/5ce45bbe-ff82-44c7-85d1-3807031ed282)
+
 
 
 <a name="method"></a>
