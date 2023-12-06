@@ -22,7 +22,10 @@ KickBoard return judging Module
 * [Setup](#install)
 * [Set Usb port](#setting)
 * [Explanation](#explain)
+* [How to Use](#method)
 * [Reference](#reference)
+* 
+
 
 <a name="models"></a>
 ## Models
@@ -124,8 +127,16 @@ conda install -c conda-forge <package name>
     반납이 실패되면 다시 반납 버튼을 누르고 위 반납 과정을 반복합니다 
 
 
-
-
+<a name="method"></a>
+## 실행 방법
+1. 기기를 노트북에 연결한다
+2. Setup 부분을 참고하여 install 한다
+3. GPS가 위성과  connect 할 때까지 야외에서 기다린다(gps불이 깜빡거리면 위성과 연결이 되었단 것이다)
+4. 주차 구역에 module을 가지고 간다
+5. main.py를 실행한다
+6. 반납 버튼을 누른다
+7. 확인한다
+8. 실패한다면 다시 반납하기 누른다.
 
 
 <a name="reference"></a>
