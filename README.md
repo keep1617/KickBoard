@@ -142,7 +142,7 @@ conda install -c conda-forge <package name>
 
 <a name="reference"></a>
 ## Reference
-* tkinter 모듈 사용법으로 기본적 코드 구현
+* tkinter 모듈 사용법 숙지
   [how to use](https://proprogramming.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EA%B8%B0%EB%B3%B8%ED%8C%A8%ED%82%A4%EC%A7%80-Tkinter%EC%82%AC%EC%9A%A9%EB%B2%95)
   
 * 아두이노 색감지 센서 코드 reference
