@@ -1,0 +1,40 @@
+@startuml
+
+
+participant "UI"
+participant "Arduino"
+participant "Judge"
+
+
+activate "UI"
+
+"UI" -> "UI" : Push the button
+
+
+
+"UI" -> "Arduino" : Arduino ON
+deactivate "UI"
+
+activate "Arduino"
+"Arduino" -> "Arduino" : Sensor ON
+
+
+
+"Arduino" -> "Arduino" : GPS ON
+
+
+"Arduino" -> "Judge" : color, GPS
+deactivate "Arduino"
+activate "Judge"
+
+"Judge" -> "Judge" : Judge
+"Judge" -> "UI" : True or False
+
+deactivate "Judge"
+activate "UI"
+
+"UI" -> "UI" : Play Sound
+
+
+
+@enduml
