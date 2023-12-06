@@ -92,7 +92,7 @@ conda install -c conda-forge <package name>
    cd mk
    git clone https://github.com/keep1617/KickBoard.git
    username: keep1617 <or your username>
-   password: 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
+   password: token 
    ```
 
 
