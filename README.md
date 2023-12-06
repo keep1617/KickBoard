@@ -37,7 +37,7 @@ JUDGING 클래스에서 이를 처리하고 반납 여부를 알려줍니다.
 <a name="install"></a>
 ## Setup Ubuntu 20.04 기준 설치 방법 --!!Conda 가상환경 설치되어있다고 가정합니다!!
 
-#conda 설치가 되어 있지 않다면 [follow](https://jongsky.tistory.com/21) 따라 하세요
+# conda 설치가 되어 있지 않다면 [follow](https://jongsky.tistory.com/21) 따라 하세요
 0. SET Virtualbox USB
   * Arduino 보드를 컴퓨터와 연결합니다 (using USB port)
   * Virtualbox 에 들어갑니다
